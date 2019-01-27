@@ -10,6 +10,7 @@ describe 'A .inputrc file in the home directory' do
       EOF
 
       GitshRunner.interactive do |gitsh|
+        gitsh.type 'init'
         gitsh.type "\cxx"
 
         expect(gitsh).to output_error(/'foobar' is not a git command/)
