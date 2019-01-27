@@ -3,11 +3,11 @@ require 'spec_helper'
 describe 'A .inputrc file in the home directory' do
   it 'is used by gitsh' do
     with_a_temporary_home_directory do
-      write_file(inputrc_path, <<-EOF)
+      write_file(inputrc_path, <<-INPUTRC)
         $if gitsh
           "\C-xx": "foobar"
         $endif
-      EOF
+      INPUTRC
 
       GitshRunner.interactive do |gitsh|
         gitsh.type 'init'
